@@ -33,3 +33,20 @@ for num in nums:
         curr_num += 1
     max_length = max(max_length, length)
 print(max_length)
+
+#method 3 - using sort -> O(n log n)
+result = nums
+result.sort()
+max_length = 0
+length = 0
+for i in range(1, len(result)):
+    curr_num = result[i]
+    if result[i] == result[i-1]:
+        continue
+    if result[i] == result[i-1] + 1:
+        length += 1
+    else:
+        max_length = max(max_length, length)
+        length = 1
+max_length = max(max_length, length)
+print(max_length)
