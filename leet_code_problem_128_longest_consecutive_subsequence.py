@@ -16,3 +16,20 @@ for num in nums:
             break
         max_length = max(max_length, length)
 print(max_length)
+
+#method 2 - Better brute force -> O(n2)
+max_length = 0
+def contains(nums, target):
+    for num in nums:
+        if num == target:
+            return True
+    return False
+
+for num in nums:
+    curr_num = num
+    length = 1
+    while contains(nums, curr_num + 1):
+        length+= 1
+        curr_num += 1
+    max_length = max(max_length, length)
+print(max_length)
