@@ -50,3 +50,16 @@ for i in range(1, len(result)):
         length = 1
 max_length = max(max_length, length)
 print(max_length)
+
+#method 4 - Optimal way -> O(n)
+nums_set = set(nums)
+max_length = 0
+for num in nums_set:
+    if num - 1 not in nums_set:
+        start = num
+        length = 1
+        while start + 1 in nums_set:
+            length += 1
+            start += 1
+        max_length = max(max_length, length)
+print(max_length)
