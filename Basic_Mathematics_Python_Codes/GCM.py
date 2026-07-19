@@ -23,3 +23,10 @@ for i in range(total, 2, -1):
         if a % i == 0 and b % i == 0:
             print(f'GCD is {i}')
             break
+
+# method 3 - optimal
+def find_gcd(a, b):
+    while b != 0:
+        return find_gcd(b, a % b)
+    return a
+print(find_gcd(a, b))
